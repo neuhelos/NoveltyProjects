@@ -5,19 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi-StepForm</title>
     <link rel="stylesheet" href="style.css"/>
+    <script type="text/javascript" src="index.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <form>
+        <form id="Form1">
             <h3>Create Account</h3>
             <input type="text" placeholder="Email" required />
             <input type="password" placeholder="Password" required />
+            <input type="password" placeholder=" Confirm Password" required />
             <div class="btn-box">
-                <button type="button">NEXT</button>
+                <button type="button" id="next1">NEXT</button>
+            </div>
+        </form>
+        <form id="Form2">
+            <h3>SOCIAL LINKS</h3>
+            <input type="text" placeholder="Medium"/>
+            <input type="text" placeholder="Github"/>
+            <input type="text" placeholder="LinkedIn"/>
+        
+            <div class="btn-box">
+                <button type="button" id="back1">BACK</button>
+                <button type="button" id="next2">NEXT</button>
+            </div>
+        </form>
+        <form id="Form3">
+            <h3>PERSONAL INFO</h3>
+            <input type="text" placeholder="First Name" required/>
+            <input type="text" placeholder="Last Name" required/>
+            <input type="text" placeholder="Phone Number" required/>
+        
+            <div class="btn-box">
+                <button type="button" id="back2">BACK</button>
+                <button type="submit">SUBMIT</button>
             </div>
         </form>
 
+        <div class="step-row">
+            <div id="progress"></div>
+            <div class="step-col">Step 1</div>
+            <div class="step-col">Step 2</div>
+            <div class="step-col">Step 3</div>
+
+        </div>
 
     </div>
+
+
 </body>
 </html>
