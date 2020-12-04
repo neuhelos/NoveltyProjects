@@ -1,4 +1,5 @@
 .root {
+  font-family: 'jost';
   height: 100%;
   display: flex;
   flex-direction: column;
