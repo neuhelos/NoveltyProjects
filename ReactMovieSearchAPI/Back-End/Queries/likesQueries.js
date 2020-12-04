@@ -28,7 +28,7 @@ const getLike = async (req, res, next) => {
         res.status(200).json({
         status: "Success",
         message: "Like Retrieved",
-        payload: job
+        payload: like
         });
     } catch (error) {
         res.status(404).json({
