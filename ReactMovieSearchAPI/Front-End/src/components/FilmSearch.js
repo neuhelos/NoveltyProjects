@@ -28,19 +28,19 @@ const FilmSearch = () => {
             <Typography variant="h3" align="center">Flix Deets Search</Typography>
             <form>
                 <FormControl className={classes.root}>
-                    <InputLabel htmlFor="input-with-icon-adornment" className={classes.font}>Search Workshops</InputLabel>
+                    <InputLabel htmlFor="input-with-icon-adornment" className={classes.font}>Search For Your Flix</InputLabel>
                     <Input
                     className={classes.font}
                     type="search"
                     id="input-with-icon-adornment"
                     variant = "filled"
-                    placeholder="Search By Title, Description or Skills"
+                    placeholder="Search By Title"
                     startAdornment={
                         <InputAdornment position="start">
                         <SearchIcon />
                         </InputAdornment>
                     }
-                    {...searchQuery}
+                    {}
                     />
                 </FormControl>
             </form>
