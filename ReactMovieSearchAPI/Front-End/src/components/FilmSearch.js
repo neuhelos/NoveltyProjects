@@ -24,7 +24,7 @@ const FilmSearch = () => {
     
     const classes = useStyles()
 
-    
+    const searchQuery = useInput("")
 
 
     return (
