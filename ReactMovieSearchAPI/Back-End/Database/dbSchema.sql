@@ -4,21 +4,22 @@ CREATE DATABASE flixdeets;
 \c flixdeets;
 
 DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS movie_likes CASCADE;
+DROP TABLE IF EXISTS film_likes CASCADE;
+DROP TABLE IF EXISTS film_dislikes CASCADE;
 
 CREATE TABLE users  (
     user_id VARCHAR PRIMARY KEY NOT NULL,
     email VARCHAR NOT NULL UNIQUE,
 );
 
-CREATE TABLE movie_likes (
+CREATE TABLE film_likes (
     id SERIAL PRIMARY KEY,
-    movie_id VARCHAR,
+    film_id VARCHAR,
     user_id INT REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE movie_dislikes (
+CREATE TABLE film_dislikes (
     id SERIAL PRIMARY KEY,
-    movie_id VARCHAR,
+    film_id VARCHAR,
     user_id INT REFERENCES users(user_id) ON DELETE CASCADE
 );
