@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-const likesRouter = require("");
-const dislikesRouter = require("");
+const likesRouter = require("./Routes/likesRoutes");
+const dislikesRouter = require("./Routes/dislikesRoutes");
 
 app.use("/likes", likesRouter);
 app.use("/dislikes", dislikesRouter);
