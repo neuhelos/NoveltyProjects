@@ -16,3 +16,9 @@ CREATE TABLE movie_likes (
     movie_id VARCHAR,
     user_id INT REFERENCES users(user_id) ON DELETE CASCADE
 );
+
+CREATE TABLE movie_dislikes (
+    id SERIAL PRIMARY KEY,
+    movie_id VARCHAR,
+    user_id INT REFERENCES users(user_id) ON DELETE CASCADE
+);
