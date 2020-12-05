@@ -66,20 +66,18 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
             }
             setLike(true)
             try {
-                await axios.post(`http://localhost:3000/likes`, {
+                let like = await axios.post(`http://localhost:3000/likes`, {
                     film_id: id,
                     user_id: user_id
                 })
+                console.log(like)
             } catch (error) {
                 console.log(error)
         }
         if(dislike){
             setDislike(false)
             try {
-                await axios.delete(`http://localhost:3000/dislikes`, {
-                    film_id: id,
-                    user_id: user_id
-                })
+                await axios.delete(`http://localhost:3000/dislikes/${user_id}/${id}`)
             } catch (error) {
                 console.log(error)
             }
@@ -87,10 +85,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         if(like) {
             setLike(false)
             try {
-                await axios.delete(`http://localhost:3000/likes/${user_id}/${id}`, {
-                    film_id: id,
-                    user_id: 1
-                })
+                await axios.delete(`http://localhost:3000/likes/${user_id}/${id}`)
             } catch (error) {
                 console.log(error)
             }
@@ -113,10 +108,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         if(like){
             setLike(false)
             try {
-                await axios.delete(`http://localhost:3000/likes`, {
-                    film_id: id,
-                    user_id: user_id
-                })
+                await axios.delete(`http://localhost:3000/likes/${user_id}/${id}`)
             } catch (error) {
                 console.log(error)
             }
@@ -124,10 +116,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         if(dislike) {
             setDislike(false)
             try {
-                await axios.delete(`http://localhost:3000/dislikes/${user_id}/${id} `, {
-                    film_id: id,
-                    user_id: 1
-                })
+                await axios.delete(`http://localhost:3000/dislikes/${user_id}/${id} `)
             } catch (error) {
                 console.log(error)
             }

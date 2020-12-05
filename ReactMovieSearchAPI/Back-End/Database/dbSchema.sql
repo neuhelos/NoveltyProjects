@@ -23,3 +23,8 @@ CREATE TABLE film_dislikes (
     film_id VARCHAR,
     user_id VARCHAR REFERENCES users(user_id) ON DELETE CASCADE
 );
+
+INSERT INTO users
+(user_id, email)
+VALUES
+(1, 'nilberremon@gmail.com')
