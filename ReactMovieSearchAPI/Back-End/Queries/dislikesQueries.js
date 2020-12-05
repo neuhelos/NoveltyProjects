@@ -42,7 +42,7 @@ const getDislike = async (req, res, next) => {
 const getAllDislikes = async (req, res, next) => {
     try {
         let allDislikes = await db.any(
-        "(SELECT COUNT(film_id) AS dislikes_count FROM film_dislikes WHERE film_id = $1)", req.params.film_id
+        "SELECT COUNT(film_id) AS dislikes_count FROM film_dislikes WHERE film_id = $1", req.params.film_id
         );
         res.status(200).json({
         status: "Success",
