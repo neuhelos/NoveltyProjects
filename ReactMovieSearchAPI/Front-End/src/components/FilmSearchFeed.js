@@ -22,8 +22,7 @@ const FilmSearchFeed = ( { filmData } ) => {
 
     let films = filmData.map( film => {
         return <FlixCard key={film.id} id={film.id}title={film.title} releaseDate={film.release_date} overview={film.overview} poster={film.poster_path} language={film.original_language}/>
-    })
-    
+    })    
 
     useEffect( () => {
     }, [filmData])

@@ -57,41 +57,75 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
     const [dislike, setDislike] = useState (false)
 
     const handleLike = async () => {
-        setLike(true)
-        try {
-            await axios.post(`http://localhost:3000/likes`, {
-                film_id: id,
-                user_id: 1
-            })
-        } catch (error) {
-            console.log(error)
+        if(!like){
+            }
+            setLike(true)
+            try {
+                await axios.post(`http://localhost:3000/likes`, {
+                    film_id: id,
+                    user_id: 1
+                })
+            } catch (error) {
+                console.log(error)
         }
         if(dislike){
             setDislike(false)
             try {
-            await axios.delete(`http://localhost:3000/likes`, {
-                film_id: id,
-                user_id: 1
-            })
-        } catch (error) {
-            console.log(error)
+                await axios.delete(`http://localhost:3000/dislikes`, {
+                    film_id: id,
+                    user_id: 1
+                })
+            } catch (error) {
+                console.log(error)
+            }
         }
+        if(like) {
+            setLike(false)
+            try {
+                await axios.delete(`http://localhost:3000/likes/${user_id}/${film_id}`, {
+                    film_id: id,
+                    user_id: 1
+                })
+            } catch (error) {
+                console.log(error)
+            }
         }
-        
     }
 
     const handleDislike = async () => {
-        setDislike(true)
-        if(like){
-            setLike(false)
+        
+        if(!dislike) {
+            setDislike(true)
+            try {
+                await axios.post(`http://localhost:3000/dislikes`, {
+                    film_id: id,
+                    user_id: 1
+                })
+            } catch (error) {
+                console.log(error)
+            }
         }
-        try {
-            await axios.post(`http://localhost:3000/dislikes`, {
-                film_id: id,
-                user_id: 1
-            })
-        } catch (error) {
-            console.log(error)
+        if(like){
+            setDislike(false)
+            try {
+                await axios.delete(`http://localhost:3000/likes`, {
+                    film_id: id,
+                    user_id: 1
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        if(dislike) {
+            setDislike(false)
+            try {
+                await axios.delete(`http://localhost:3000/dislikes/${user_id}/${film_id} `, {
+                    film_id: id,
+                    user_id: 1
+                })
+            } catch (error) {
+                console.log(error)
+            }
         }
         
     }

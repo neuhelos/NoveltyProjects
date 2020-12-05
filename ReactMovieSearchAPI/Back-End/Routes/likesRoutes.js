@@ -6,6 +6,6 @@ const { getAllLikes, getLike, createLike, deleteLike }  = require("../Queries/li
 likes.get("/", getAllLikes)
 likes.get("/:id", getLike)
 likes.post("/", createLike)
-likes.delete("/", deleteLike)
+likes.delete("/:user/:filmId", deleteLike)
 
 module.exports = likes;
