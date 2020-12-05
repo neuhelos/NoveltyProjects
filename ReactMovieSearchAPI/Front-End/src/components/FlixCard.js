@@ -59,12 +59,15 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
     };
 
     const [like, setLike] = useState(false)
+    const [likesCount, setLikesCount] = useState(0)
     const [dislike, setDislike] = useState (false)
+    const [dislikesCount, setDislikesCount] = useState(0)
 
     const handleLike = async () => {
         if(!like){
             }
             setLike(true)
+            setLikesCount( prev => prev++ )
             try {
                 await axios.post(`http://localhost:3000/likes`, {
                     film_id: id,
@@ -75,6 +78,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         }
         if(dislike){
             setDislike(false)
+            setDislikesCount( prev => prev-- )
             try {
                 await axios.delete(`http://localhost:3000/dislikes/${user_id}/${id}`)
             } catch (error) {
@@ -83,6 +87,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         }
         if(like) {
             setLike(false)
+            setLikesCount( prev => prev-- )
             try {
                 await axios.delete(`http://localhost:3000/likes/${user_id}/${id}`)
             } catch (error) {
@@ -95,6 +100,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         
         if(!dislike) {
             setDislike(true)
+            setDislikesCount( prev => prev ++ )
             try {
                 await axios.post(`http://localhost:3000/dislikes`, {
                     film_id: id,
@@ -106,6 +112,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         }
         if(like){
             setLike(false)
+            setLikesCount( prev => prev-- )
             try {
                 await axios.delete(`http://localhost:3000/likes/${user_id}/${id}`)
             } catch (error) {
@@ -114,6 +121,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         }
         if(dislike) {
             setDislike(false)
+            setDislikesCount( prev => prev-- )
             try {
                 await axios.delete(`http://localhost:3000/dislikes/${user_id}/${id} `)
             } catch (error) {
@@ -142,9 +150,11 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
                 <IconButton aria-label="like" onClick={handleLike}>
                     {like ? <ThumbUpIcon className={classes.active}/> : <ThumbUpOutlinedIcon/> }
                 </IconButton>
+                <Typography>Likes: {likesCount}</Typography>
                 <IconButton aria-label="dislike" onClick={handleDislike}>
                     {dislike ? <ThumbDownIcon className={classes.active}/> : <ThumbDownOutlinedIcon/>}
                 </IconButton>
+                <Typography>Dislikes: {dislikesCount}</Typography>
                 <IconButton
                     className={clsx(classes.expand, {
                     [classes.expandOpen]: expanded,
