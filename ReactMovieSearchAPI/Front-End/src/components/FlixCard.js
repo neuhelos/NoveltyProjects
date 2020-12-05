@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     expandOpen: {
         transform: 'rotate(180deg)',
     },
+    active : {
+        color: '#ED3948'
+    }
 }));
 
 
@@ -149,10 +152,10 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
                     />
                 <CardActions disableSpacing>
                 <IconButton aria-label="like" onClick={handleLike}>
-                    {like ? <ThumbUpIcon /> : <ThumbUpOutlinedIcon/> }
+                    {like ? <ThumbUpIcon className={classes.active}/> : <ThumbUpOutlinedIcon/> }
                 </IconButton>
                 <IconButton aria-label="dislike" onClick={handleDislike}>
-                    {dislike ? <ThumbDownIcon/> : <ThumbDownOutlinedIcon/>}
+                    {dislike ? <ThumbDownIcon className={classes.active}/> : <ThumbDownOutlinedIcon/>}
                 </IconButton>
                 <IconButton
                     className={clsx(classes.expand, {
