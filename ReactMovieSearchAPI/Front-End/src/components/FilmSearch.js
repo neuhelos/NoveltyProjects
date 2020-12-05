@@ -55,7 +55,7 @@ const FilmSearch = () => {
         try {
             let res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_APIKEY}&query=${searchQuery.value}&language=en-US&include_adult=false`)
             setFilmData(res.data.results)
-            debugger
+            
         } catch (error) {
             console.log(error)
         }

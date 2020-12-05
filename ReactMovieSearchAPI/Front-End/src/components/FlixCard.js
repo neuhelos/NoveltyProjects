@@ -11,7 +11,10 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import ThumbDownOutlinedIcon from '@material-ui/icons/ThumbDownAltOutlined';
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
@@ -44,13 +47,27 @@ const useStyles = makeStyles((theme) => ({
 const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
 
     const classes = useStyles();
+
     const [expanded, setExpanded] = React.useState(false);
-
-
-
     const handleExpandClick = () => {
     setExpanded(!expanded);
     };
+
+    const [like, setLike] = useState(false)
+    const [dislike, setDislike] = useState (false)
+
+    const handleLike = async () => {
+        
+        try {
+            await axios.post(`http://localhost:3000/like`)
+        
+        }
+        
+        if(dislike){
+            setDislike(false)
+        }
+    }
+
 
     return (
         <div className={classes.root}>
@@ -68,7 +85,11 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
                 />
                 <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
+                    {like ? <ThumbUpIcon /> : <ThumbUpOutlinedIcon/> }
+                </IconButton>
+                <IconButton>
+                    {dislike ? <ThumbDownIcon/> : <ThumbDownOutlinedIcon/>}
+                    onClick={handleLike}
                 </IconButton>
                 <IconButton
                     className={clsx(classes.expand, {
