@@ -102,17 +102,15 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
                 subheader={`Release Date: ${releaseDate}`}
                 />
                 <CardMedia
-                className={classes.media}
-                image="https://lh3.googleusercontent.com/proxy/fDxbaI36b7KQZ-1wWsqTVc3yZkwHyId90dZb2zvDfXYcUnabLkuHZXZj-HXKPML799r0hs1d9SmAhWuIAwdKft_mhFMPjIBgQVteSNld_Xxpzn4CeQ"
-                />
+                    className={classes.media}
+                    image="https://lh3.googleusercontent.com/proxy/fDxbaI36b7KQZ-1wWsqTVc3yZkwHyId90dZb2zvDfXYcUnabLkuHZXZj-HXKPML799r0hs1d9SmAhWuIAwdKft_mhFMPjIBgQVteSNld_Xxpzn4CeQ"
+                    />
                 <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
+                <IconButton aria-label="like" onClick={handleLike}>
                     {like ? <ThumbUpIcon /> : <ThumbUpOutlinedIcon/> }
-                    onClick={handleLike}
                 </IconButton>
-                <IconButton>
+                <IconButton aria-label="dislike" onClick={handleDislike}>
                     {dislike ? <ThumbDownIcon/> : <ThumbDownOutlinedIcon/>}
-                    onClick={handleDisLike}
                 </IconButton>
                 <IconButton
                     className={clsx(classes.expand, {
