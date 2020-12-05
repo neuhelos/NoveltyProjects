@@ -4,7 +4,7 @@ import FilmSearch from './components/FilmSearch'
 
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { theme } from "./Styling/ThemeProvider";
+import { theme } from "./stylingTheme/ThemeProvider";
 import { makeStyles } from "@material-ui/core/styles"
 
 import Typography from "@material-ui/core/Typography"
