@@ -63,6 +63,16 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
     const [dislike, setDislike] = useState (false)
     const [dislikesCount, setDislikesCount] = useState(0)
 
+    useEffect( () => {
+
+        const fetchAllLikes = (film_id) => {
+
+        
+        }
+    
+    })
+
+
     const handleLike = async () => {
         if(!like){
             }
@@ -87,12 +97,13 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         }
         if(like) {
             setLike(false)
-            setLikesCount( prevCount => prevCount - 1)
+            setLikesCount( likesCount - 1 )
             try {
                 await axios.delete(`http://localhost:3000/likes/${user_id}/${id}`)
             } catch (error) {
                 console.log(error)
             }
+            return
         }
     }
 
