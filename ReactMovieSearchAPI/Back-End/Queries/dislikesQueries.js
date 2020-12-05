@@ -59,7 +59,7 @@ const getAllDislikes = async (req, res, next) => {
 
 const deleteDislike = async (req, res, next) => {
     try {
-        await db.none("DELETE FROM film_dislikes WHERE user_id = $1 film_id = $2",
+        await db.none("DELETE FROM film_dislikes WHERE user_id = $1 AND film_id = $2",
         [req.params.user_id, req.params.film_id]
         );
         res.status(200).json({
