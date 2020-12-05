@@ -16,4 +16,4 @@ Once your search queries have reached their zenith, voice your likes and displea
 
 ## Technical Base
 
-Flix Deets is a single page web application bootstrapped and developed with React and built using PostgreSQL for database management, NodeJS and Express for server-side support and Material-UI as the base for designing the UI/UX framewoek.
+Flix Deets is a single page web application bootstrapped and developed with React and built using PostgreSQL for database management, NodeJS and Express for server-side support and Material-UI as the base for designing the UI/UX framework.
