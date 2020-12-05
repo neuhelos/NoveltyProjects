@@ -29,7 +29,7 @@ const FlixDeetsApp = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={classes.root}>
-        <Typography variant='h1' gutterBottom={true} align='center'>FLIX DEETS UNPLUGGED</Typography>
+        <Typography variant='h1' gutterBottom={true} align='center'>FLIX DEETS CINEMAVERSE</Typography>
         <FilmSearch />
       </div>
     </ThemeProvider>

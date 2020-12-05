@@ -67,7 +67,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         if(!like){
             }
             setLike(true)
-            setLikesCount( prev => prev++ )
+            setLikesCount( prevCount => prevCount + 1 )
             try {
                 await axios.post(`http://localhost:3000/likes`, {
                     film_id: id,
@@ -78,7 +78,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         }
         if(dislike){
             setDislike(false)
-            setDislikesCount( prev => prev-- )
+            setDislikesCount( prevCount => prevCount - 1 )
             try {
                 await axios.delete(`http://localhost:3000/dislikes/${user_id}/${id}`)
             } catch (error) {
@@ -87,7 +87,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         }
         if(like) {
             setLike(false)
-            setLikesCount( prev => prev-- )
+            setLikesCount( prevCount => prevCount - 1)
             try {
                 await axios.delete(`http://localhost:3000/likes/${user_id}/${id}`)
             } catch (error) {
@@ -100,7 +100,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         
         if(!dislike) {
             setDislike(true)
-            setDislikesCount( prev => prev ++ )
+            setDislikesCount( prevCount => prevCount + 1)
             try {
                 await axios.post(`http://localhost:3000/dislikes`, {
                     film_id: id,
@@ -112,7 +112,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         }
         if(like){
             setLike(false)
-            setLikesCount( prev => prev-- )
+            setLikesCount( prevCount => prevCount - 1 )
             try {
                 await axios.delete(`http://localhost:3000/likes/${user_id}/${id}`)
             } catch (error) {
@@ -121,7 +121,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         }
         if(dislike) {
             setDislike(false)
-            setDislikesCount( prev => prev-- )
+            setDislikesCount( prevCount => prevCount - 1 )
             try {
                 await axios.delete(`http://localhost:3000/dislikes/${user_id}/${id} `)
             } catch (error) {
