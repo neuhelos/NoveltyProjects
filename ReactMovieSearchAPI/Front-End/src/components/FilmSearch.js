@@ -75,7 +75,7 @@ const FilmSearch = () => {
                         <Input
                         type="search"
                         variant="filled"
-                        placeholder="Search By Title"
+                        placeholder="Search By Title, Description or Keyword"
                         startAdornment={
                             <InputAdornment position="start">
                             <SearchIcon />

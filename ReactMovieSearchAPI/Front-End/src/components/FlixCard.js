@@ -66,11 +66,10 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
             }
             setLike(true)
             try {
-                let like = await axios.post(`http://localhost:3000/likes`, {
+                await axios.post(`http://localhost:3000/likes`, {
                     film_id: id,
                     user_id: user_id
                 })
-                console.log(like)
             } catch (error) {
                 console.log(error)
         }
