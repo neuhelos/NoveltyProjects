@@ -5,7 +5,7 @@ const { getAllLikes, getLike, createLike, deleteLike }  = require("../Queries/li
 //likes Routes
 likes.delete("/:user_id/:film_id", deleteLike)
 likes.get("/:id", getLike)
-likes.get("/", getAllLikes)
+likes.get("/:film_id", getAllLikes)
 likes.post("/", createLike)
 
 module.exports = likes;

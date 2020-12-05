@@ -65,12 +65,27 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
 
     useEffect( () => {
 
-        const fetchAllLikes = (film_id) => {
-
-        
+        const fetchAllLikes = async () => {
+            try {
+                let res = await axios.get(`http://localhost:3000/likes/${id}`)
+                debugger
+                setLikesCount(res.payload)
+            } catch (error) {
+                console.log(error)
+            }
         }
-    
-    })
+        fetchAllLikes()
+
+        const fetchAllDislikes = async () => {
+            try {
+                let res = await axios.get(`http://localhost:3000/dislikes/${id}`)
+                setDislikesCount(res.payload)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchAllDislikes()
+    }, [])
 
 
     const handleLike = async () => {

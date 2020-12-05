@@ -4,7 +4,7 @@
 ----------------------------
 
 ### Demo
-![Demo]()
+![Demo]("./Front-End/src/stylingDesign/Assets/FlixDeetsDemo.gif")
 
 
 ## How To

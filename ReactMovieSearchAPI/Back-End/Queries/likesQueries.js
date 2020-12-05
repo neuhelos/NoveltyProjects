@@ -42,7 +42,7 @@ const getLike = async (req, res, next) => {
 const getAllLikes = async (req, res, next) => {
     try {
         let allLikes = await db.any(
-        "SELECT COUNT(film_id) FROM film_likes WHERE film_id = $1 ) AS likes_count", req.body.film_id
+        "SELECT COUNT(film_id) AS likes_count FROM film_likes WHERE film_id = $1", req.params.film_id
         );
         res.status(200).json({
         status: "Success",
