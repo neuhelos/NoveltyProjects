@@ -78,7 +78,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         const fetchAllDislikes = async () => {
             try {
                 let res = await axios.get(`http://localhost:3000/dislikes/${id}`)
-                setDislikesCount(Number(res.data.payload[0].likes_count))
+                setDislikesCount(Number(res.data.payload[0].dislikes_count))
             } catch (error) {
                 console.log(error)
             }
