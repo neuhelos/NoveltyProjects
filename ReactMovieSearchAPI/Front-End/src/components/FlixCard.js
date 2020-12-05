@@ -73,6 +73,23 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         }
     }
 
+    const handleDislike = async () => {
+        
+        try {
+            await axios.post(`http://localhost:3000/dislikes`, {
+                film_id: id,
+                user_id: 1
+            })
+        } catch (error) {
+            console.log(error)
+        }
+        
+        setDislike(true)
+        if(like){
+            setDislike(false)
+        }
+    }
+
 
     return (
         <div className={classes.root}>
