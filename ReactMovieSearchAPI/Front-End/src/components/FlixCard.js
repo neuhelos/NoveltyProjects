@@ -68,7 +68,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         const fetchAllLikes = async () => {
             try {
                 let res = await axios.get(`http://localhost:3000/likes/${id}`)
-                setLikesCount(Number(res.data.payload[0]))
+                setLikesCount(Number(res.data.payload[0].likes_count))
                 debugger
             } catch (error) {
                 console.log(error)
@@ -79,7 +79,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         const fetchAllDislikes = async () => {
             try {
                 let res = await axios.get(`http://localhost:3000/dislikes/${id}`)
-                setDislikesCount(Number(res.data.payloa[0]))
+                setDislikesCount(Number(res.data.payload[0].likes_count))
             } catch (error) {
                 console.log(error)
             }
