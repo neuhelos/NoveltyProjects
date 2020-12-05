@@ -59,10 +59,15 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
     const handleLike = async () => {
         
         try {
-            await axios.post(`http://localhost:3000/like`)
-        
+            await axios.post(`http://localhost:3000/likes`, {
+                film_id: id,
+                user_id: 1
+            })
+        } catch (error) {
+            console.log(error)
         }
         
+        setLike(true)
         if(dislike){
             setDislike(false)
         }
@@ -86,10 +91,11 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
                 <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
                     {like ? <ThumbUpIcon /> : <ThumbUpOutlinedIcon/> }
+                    onClick={handleLike}
                 </IconButton>
                 <IconButton>
                     {dislike ? <ThumbDownIcon/> : <ThumbDownOutlinedIcon/>}
-                    onClick={handleLike}
+                    onClick={handleDisLike}
                 </IconButton>
                 <IconButton
                     className={clsx(classes.expand, {
