@@ -46,6 +46,8 @@ const useStyles = makeStyles((theme) => ({
 
 const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
 
+    let user_id = 1
+
     const classes = useStyles();
 
     const [expanded, setExpanded] = React.useState(false);
@@ -63,7 +65,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
             try {
                 await axios.post(`http://localhost:3000/likes`, {
                     film_id: id,
-                    user_id: 1
+                    user_id: user_id
                 })
             } catch (error) {
                 console.log(error)
@@ -73,7 +75,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
             try {
                 await axios.delete(`http://localhost:3000/dislikes`, {
                     film_id: id,
-                    user_id: 1
+                    user_id: user_id
                 })
             } catch (error) {
                 console.log(error)
@@ -82,7 +84,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         if(like) {
             setLike(false)
             try {
-                await axios.delete(`http://localhost:3000/likes/${user_id}/${film_id}`, {
+                await axios.delete(`http://localhost:3000/likes/${user_id}/${id}`, {
                     film_id: id,
                     user_id: 1
                 })
@@ -119,7 +121,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         if(dislike) {
             setDislike(false)
             try {
-                await axios.delete(`http://localhost:3000/dislikes/${user_id}/${film_id} `, {
+                await axios.delete(`http://localhost:3000/dislikes/${user_id}/${id} `, {
                     film_id: id,
                     user_id: 1
                 })
