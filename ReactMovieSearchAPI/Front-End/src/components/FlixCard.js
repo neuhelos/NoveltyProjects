@@ -57,7 +57,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
     const [dislike, setDislike] = useState (false)
 
     const handleLike = async () => {
-        
+        setLike(true)
         try {
             await axios.post(`http://localhost:3000/likes`, {
                 film_id: id,
@@ -66,15 +66,25 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
         } catch (error) {
             console.log(error)
         }
-        
-        setLike(true)
         if(dislike){
             setDislike(false)
+            try {
+            await axios.delete(`http://localhost:3000/likes`, {
+                film_id: id,
+                user_id: 1
+            })
+        } catch (error) {
+            console.log(error)
         }
+        }
+        
     }
 
     const handleDislike = async () => {
-        
+        setDislike(true)
+        if(like){
+            setLike(false)
+        }
         try {
             await axios.post(`http://localhost:3000/dislikes`, {
                 film_id: id,
@@ -84,10 +94,6 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
             console.log(error)
         }
         
-        setDislike(true)
-        if(like){
-            setDislike(false)
-        }
     }
 
 

@@ -6,6 +6,6 @@ const { getAllDislikes, getDislike, createDislike, deleteDislike }  = require(".
 dislikes.get("/", getAllDislikes)
 dislikes.get("/:id", getDislike)
 dislikes.post("/", createDislike)
-dislikes.delete("/:id", deleteDislike)
+dislikes.delete("/", deleteDislike)
 
 module.exports = dislikes;
