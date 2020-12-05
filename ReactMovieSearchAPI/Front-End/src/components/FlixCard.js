@@ -69,7 +69,6 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
             try {
                 let res = await axios.get(`http://localhost:3000/likes/${id}`)
                 setLikesCount(Number(res.data.payload[0].likes_count))
-                debugger
             } catch (error) {
                 console.log(error)
             }
