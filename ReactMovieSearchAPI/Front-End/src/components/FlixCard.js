@@ -169,7 +169,7 @@ const FlixCard = ({ id, title, releaseDate, overview, poster, language}) => {
                 />
                 <CardMedia
                     className={classes.media}
-                    image="https://lh3.googleusercontent.com/proxy/fDxbaI36b7KQZ-1wWsqTVc3yZkwHyId90dZb2zvDfXYcUnabLkuHZXZj-HXKPML799r0hs1d9SmAhWuIAwdKft_mhFMPjIBgQVteSNld_Xxpzn4CeQ"
+                    image="https://images.squarespace-cdn.com/content/v1/5a6a74ffe45a7cb3647a68e7/1561133750956-5C141RBL08R9UMJUACBD/ke17ZwdGBToddI8pDm48kIIFsYAJJX10OgNkc4SuD20UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKce0j9vvU4chI_bB_CjBNrJapSKkBorzMUDpE1NYw5XxnDgGKGBETQKcT3bo-auxwM/ghostbusters-blog.jpg?format=1000w"
                     />
                 <CardActions disableSpacing>
                 <IconButton aria-label="like" onClick={handleLike}>
