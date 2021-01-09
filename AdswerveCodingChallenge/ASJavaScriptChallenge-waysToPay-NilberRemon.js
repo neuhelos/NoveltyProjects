@@ -11,7 +11,7 @@
 
 
 //Input: 4
-//Output: 5 Ways to Pay (order-sensitive)
+//Output: 5 Ways to Pay
 // 1,1,1,1
 // 2,2
 // 2,1,1
@@ -30,34 +30,30 @@
 //2,1,2
 //5
 
-//Permutations
+//Permutations vs Combinations (Order sensitivity)
+//Need all possible permutations of coin denominations to sum to bill
+//Need recursion - iterate through denominations subtracting from bill calling on function (similar to depth first search
 
 const waysToPay = (bill, coinDenominations) => {
     
     const permuWays = (bill, payment) => {
         
-        let result = [];
-
-        coinDenominations.map(denom => {
-            let way
-            if (denom === bill){
-                result.push(payment.concat([denom]))
-            }
-            else if (denom < bill){
-                way = permuWays(bill-denom, payment.concat([denom]))
-            }
-            if (way){
-                return result = result.concat(way)
-            }
+        let result = []
         
-        })
+        for (let denom of coinDenominations){
+            let way
+            denom === bill ? result.push(payment.concat([denom])) : denom < bill ? way = permuWays(bill-denom, payment.concat([denom])) : null
+            if (way){ //not add undefined payments because denomination is greater than bill argument 
+                result = result.concat(way)
+            }
+        }
         
         return result
 
     }
 
-
-    return permuWays(bill, []).length
+    let pay = permuWays(bill, payment = [])
+    return {WaysToPay: pay.length, PaymentOptions: bill === 0 ? "None" : pay}
 
 }
 
