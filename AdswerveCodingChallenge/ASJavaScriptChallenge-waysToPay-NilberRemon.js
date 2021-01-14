@@ -31,10 +31,10 @@
 //5
 
 //Permutations vs Combinations (Order sensitivity)
-//Need all possible permutations of coin denominations to sum to bill
+//Need all possible permutations of coin denominations to sum to bill amount
 //Need recursion - iterate through denominations subtracting from bill calling on function (similar to depth first search
 
-const waysToPay = (bill, coinDenominations) => {
+const waysToPayRecursion = (bill, coinDenominations) => {
     
     const permuWays = (bill, payment) => {
         
@@ -57,5 +57,28 @@ const waysToPay = (bill, coinDenominations) => {
 
 }
 
-console.log(waysToPay(4, [1,2,5]))
+console.log(waysToPayRecursion(4, [1,2,5]))
+
+
+
+const waysToPayIteration = (bill, coinDenominations) => {
+
+    let result = new Array(bill + 1).fill(0)
+    result[0] = 1
+
+    for(let i = 1; i < bill + 1; i++) {
+        for(let j = 0; j <= coinDenominations.length; j++)
+            if(i - coinDenominations[j] >= 0){
+                result[i] += result[i-coinDenominations[j]]
+            
+            }
+    }
+
+    return result[bill]
+
+}
+
+console.log(waysToPayIteration(5, [1,2,5]))
+
+
 
