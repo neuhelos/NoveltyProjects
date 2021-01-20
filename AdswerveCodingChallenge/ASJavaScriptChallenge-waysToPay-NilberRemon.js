@@ -74,7 +74,7 @@ const waysToPayIteration = (bill, coinDenominations) => {
             }
     }
 
-    return result[bill]
+    return `Ways to Pay: ${result[bill]}`
 
 }
 
