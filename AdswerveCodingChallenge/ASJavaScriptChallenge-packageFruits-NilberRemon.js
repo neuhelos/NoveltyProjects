@@ -17,6 +17,26 @@
 
 //Max List/Array Length of 3 per Matrix Element
 
+//Time Complexity: Linear - Need to iterate through order to repackage
+//Space Complexity: Linear, creating new array
+
+//Need a variable to accumulate repackaged orders. Reduce built-in
+
+//Alternative: Use an array method like forEach 
+
+const packageFruits = (order) => {
+
+    let index = 0
+    let result = []
+
+    let newOrder = order.forEach( produce => {
+        result[index] ? result[index].push(produce) : result[index].push([produce])
+        if(result[index].length > 3) index ++
+    })
+
+    return result
+
+}
 
 
 const packageFruits = (order) => {
@@ -36,3 +56,5 @@ const packageFruits = (order) => {
 }
 
 console.log(packageFruits(["starfruit", "tamarind", "mango", "guava", "coconut", "mora", "guanábana"]))
+
+
